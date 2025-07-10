@@ -18,84 +18,138 @@
   <form action="#">
     <div class="container">
       <div class="row">
-        <div class="col-4 text-center">
-          <label for="" class="form-label">Nome e Cognome</label>
+        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+          <label for="" class="form-label"><strong>Nome e Cognome</strong></label>
           <input type="text" name="name" id="name" class="form-control text-center"
-            placeholder="Inserisci nome e cognome">
+            placeholder="Inserisci nome e cognome" required>
         </div>
-        <div class="col-4 text-center">
-          <label for="" class="form-label">Km da percorrere</label>
+        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+          <label for="" class="form-label"><strong>Km da percorrere</strong></label>
           <input type="number" name="km" id="km" class="form-control text-center"
-            placeholder="Inserisci km da percorrere">
+            placeholder="Inserisci km da percorrere" required>
         </div>
-        <div class="col-4 text-center">
-          <label for="" class="form-label">Inserisci et&agrave;</label>
-          <select name="eta" id="eta" class="form-select text-center">
+        <div class="col-lg-4 col-sm-12 text-center">
+          <label for="" class="form-label"><strong>Et&agrave;</strong></label>
+          <select name="eta" id="eta" class="form-select text-center" required>
             <option value="">Scegli un'opzione</option>
             <option value="minor">Ho meno di 18 anni</option>
             <option value="default">Ho tra i 18 e i 64 anni</option>
             <option value="over">Ho 65 o pi&ugrave; anni</option>
           </select>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-12 text-center my-5">
-          <button type="submit" class="btn btn-success me-4">Crea biglietto</button>
-          <button type="submit" class="btn btn-danger me-4">Azzera informazioni</button>
+        <div class="col-lg-4 col-sm-8 text-center my-4">
+          <label for="" class="form-label"><strong>Data partenza</strong></label>
+          <input type="date" name="dateIn" id="dateIn" class="form-control text-center"
+            placeholder="Inserisci data partenza" required>
+        </div>
+        <div class="col-lg-2 col-sm-4 text-center my-4">
+          <label for="" class="form-label"><strong>Orario partenza</strong></label>
+          <input type="time" name="timeIn" id="timeIn" class="form-control text-center"
+            placeholder="Inserisci orario partenza" required>
+        </div>
+        <div class="col-lg-4 col-sm-8 text-center my-4">
+          <label for="" class="form-label"><strong>Data ritorno</strong></label>
+          <input type="date" name="dateOut" id="dateOut" class="form-control text-center"
+            placeholder="Inserisci data ritorno">
+        </div>
+        <div class="col-lg-2 col-sm-4 text-center my-4">
+          <label for="" class="form-label"><strong>Orario ritorno</strong></label>
+          <input type="time" name="timeOut" id="timeOut" class="form-control text-center"
+            placeholder="Inserisci orario ritorno">
         </div>
       </div>
+      <div class="col-12 text-center mt-4 mb-5">
+        <button type="submit" id="create" class="btn btn-success me-4">Crea biglietto</button>
+        <button type="submit" id="restart" class="btn btn-danger me-4">Azzera informazioni</button>
+      </div>
       <h1 class="text-center my-3">IL TUO BIGLIETTO</h1>
-      <div class="card">
+      <div class="card my-4">
         <div class="row">
-          <div class="col-lg-2 col-md-4 text-center my-4">
+          <div class="col-md-6 col-sm-12 text-center my-4">
             <div class="card-header bg-white">
               <h3>Nominativo</h3>
             </div>
-            <div class="card-body fs-4">
+            <div class="card-body fs-5">
               <span id="show-name">Nome e Cognome</span>
             </div>
           </div>
-          <div class="col-2 text-center my-4">
+          <div class="col-md-6 col-sm-12 text-center my-4">
             <div class="card-header bg-white">
               <h3>Posto</h3>
             </div>
-            <div class="card-body fs-4">
+            <div class="card-body fs-5">
               <span id="show-seat">N. carrozza e posto</span>
             </div>
           </div>
-          <div class="col-2 text-center my-4">
+          <div class="col-lg-3 col-md-6 col-sm-12 text-center my-4">
+            <div class="card-header bg-white">
+              <h3>Data andata</h3>
+            </div>
+            <div class="card-body fs-5">
+              <span id="show-dateIn">Data andata</span>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-12 text-center my-4">
+            <div class="card-header bg-white">
+              <h3>Orario andata</h3>
+            </div>
+            <div class="card-body fs-5">
+              <span id="show-timeIn">Orario andata</span>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-12 text-center my-4">
+            <div class="card-header bg-white">
+              <h3>Data ritorno</h3>
+            </div>
+            <div class="card-body fs-5">
+              <span id="show-dateOut">Data ritorno</span>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-12 text-center my-4">
+            <div class="card-header bg-white">
+              <h3>Orario ritorno</h3>
+            </div>
+            <div class="card-body fs-5">
+              <span id="show-timeOut">Orario ritorno</span>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-12 text-center my-4">
             <div class="card-header bg-white">
               <h3>Km</h3>
             </div>
-            <div class="card-body fs-4">
+            <div class="card-body fs-5">
               <span id="show-km">Km segnati</span>
             </div>
           </div>
-          <div class="col-2 text-center my-4">
+          <div class="col-lg-3 col-md-6 col-sm-12 text-center my-4">
             <div class="card-header bg-white">
-              <h3>Et&agrave;</h3>
+              <h3>Sconto et&agrave;</h3>
             </div>
-            <div class="card-body fs-4">
-              <span id="show-eta">Et&agrave;</span>
+            <div class="card-body fs-5">
+              <span id="show-eta">Sconto et&agrave;</span>
             </div>
           </div>
-          <div class="col-2 text-center my-4">
+          <div class="col-lg-3 col-md-6 col-sm-12 text-center my-4">
             <div class="card-header bg-white">
-              <h3>Prezzo 1km</h3>
+              <h3>Prezzo al km</h3>
             </div>
-            <div class="card-body fs-4">
+            <div class="card-body fs-5">
               <span id="show-price">&euro; 0,21</span>
             </div>
           </div>
-          <div class="col-2 text-center my-4">
+          <div class="col-lg-3 col-md-6 col-sm-12 text-center my-4">
             <div class="card-header bg-white">
-              <h3>Totale</h3>
+              <h3>Prezzo totale</h3>
             </div>
-            <div class="card-body fs-4">
+            <div class="card-body fs-5">
               <span id="show-totalPrice">Prezzo totale</span>
             </div>
           </div>
         </div>
+      </div>
+      <div class="text-center">
+        <button type="submit" id="confirm" class="btn btn-success mb-5">Conferma acquisto biglietto</button>
       </div>
     </div>
   </form>
