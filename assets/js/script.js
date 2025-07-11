@@ -63,6 +63,18 @@ create.addEventListener("click", function (event) {
   }
   calcolaBiglietto(eta, km);
   assegnaPosto(km);
+
+  const showName = document.getElementById('show-name');
+  const showSeat = document.getElementById('show-seat');
+  const showDateIn = document.getElementById('show-dateIn');
+  const showTimeIn = document.getElementById('show-timeIn');
+  const showDateOut = document.getElementById('show-dateOut');
+  const showTimeOut = document.getElementById('show-timeOut');
+  const showKm = document.getElementById('show-km');
+  const showSconto = document.getElementById('show-sconto');
+  const showPrice = document.getElementById('show-price');
+  const showTotalPrice = document.getElementById('show-totalPrice');
+
 })
 
 
