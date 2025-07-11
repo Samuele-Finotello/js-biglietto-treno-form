@@ -11,6 +11,35 @@ const calcolaBiglietto = (anni, chilometri) => {
   console.log(prezzoTotale.toFixed(2));
 }
 
+const assegnaPosto = (chilometri) => {
+  min = 0;
+  max = 0;
+  if (chilometri < 20) {
+    seat = Math.floor(Math.random() * 100) + 1;
+  }
+  else if (chilometri < 40) {
+    min = 100;
+    max = 200;
+    seat = Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  else if (chilometri < 60) {
+    min = 200;
+    max = 300;
+    seat = Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  else if (chilometri < 80) {
+    min = 300;
+    max = 400;
+    seat = Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  else {
+    min = 400;
+    max = 500;
+    seat = Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  console.log(seat)
+}
+
 const create = document.getElementById('create');
 
 create.addEventListener("click", function (event) {
@@ -33,6 +62,7 @@ create.addEventListener("click", function (event) {
     console.log(timeOut);
   }
   calcolaBiglietto(eta, km);
+  assegnaPosto(km);
 })
 
 
