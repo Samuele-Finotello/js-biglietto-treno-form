@@ -14,7 +14,11 @@ const calcolaBiglietto = (anni, chilometri) => {
 const assegnaPosto = (chilometri) => {
   min = 0;
   max = 0;
-  if (chilometri < 20) {
+  if (chilometri === '') {
+    seat = '/';
+    return seat;
+  }
+  else if (chilometri < 20) {
     sedile = Math.floor(Math.random() * 100) + 1;
     if (sedile <= 50) {
       seat = `Carrozza: 1 Posto: ${sedile}`;
@@ -119,10 +123,24 @@ create.addEventListener("click", function (event) {
   const showSconto = document.getElementById('show-sconto');
   const showTotalPrice = document.getElementById('show-totalPrice');
 
-  showName.innerHTML = name;
+  if (name !== '') {
+    showName.innerHTML = name;
+  }
+  else {
+    showName.innerHTML = '/';
+  }
+
   showSeat.innerHTML = seat;
-  showDateIn.innerHTML = dateIn;
-  showTimeIn.innerHTML = timeIn;
+
+  if (dateIn !== '') {
+    showDateIn.innerHTML = dateIn;
+    showTimeIn.innerHTML = timeIn;
+  }
+  else {
+    showDateIn.innerHTML = '/';
+    showTimeIn.innerHTML = '/';
+  }
+
   if (dateOut !== '') {
     showDateOut.innerHTML = dateOut;
     showTimeOut.innerHTML = timeOut;
@@ -131,7 +149,14 @@ create.addEventListener("click", function (event) {
     showDateOut.innerHTML = '/';
     showTimeOut.innerHTML = '/';
   }
-  showKm.innerHTML = `${km} km`;
+
+  if (km !== '') {
+    showKm.innerHTML = km;
+  }
+  else {
+    showKm.innerHTML = '/';
+  }
+
   if (eta === 'minor') {
     showSconto.innerHTML = '20%';
   }
@@ -141,6 +166,7 @@ create.addEventListener("click", function (event) {
   else {
     showSconto.innerHTML = '/';
   }
+
   showTotalPrice.innerHTML = `€ ${prezzoTotale.toFixed(2)}`;
 })
 
