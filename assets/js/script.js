@@ -8,36 +8,81 @@ const calcolaBiglietto = (anni, chilometri) => {
     sconto = prezzoTotale * 40 / 100;
     prezzoTotale = prezzoTotale - sconto;
   }
-  console.log(prezzoTotale.toFixed(2));
+  return prezzoTotale.toFixed(2);
 }
 
 const assegnaPosto = (chilometri) => {
   min = 0;
   max = 0;
   if (chilometri < 20) {
-    seat = Math.floor(Math.random() * 100) + 1;
+    sedile = Math.floor(Math.random() * 100) + 1;
+    if (sedile <= 50) {
+      seat = `Carrozza: 1 Posto: ${sedile}`;
+    }
+    else {
+      seat = `Carrozza: 2 Posto: ${sedile}`;
+    }
   }
   else if (chilometri < 40) {
     min = 100;
     max = 200;
-    seat = Math.floor(Math.random() * (max - min + 1)) + min;
+    sedile = Math.floor(Math.random() * (max - min + 1)) + min;
+    if (sedile <= 150) {
+      seat = `Carrozza: 3 Posto: ${sedile}`;
+    }
+    else {
+      seat = `Carrozza: 4 Posto: ${sedile}`;
+    }
   }
   else if (chilometri < 60) {
     min = 200;
     max = 300;
-    seat = Math.floor(Math.random() * (max - min + 1)) + min;
+    sedile = Math.floor(Math.random() * (max - min + 1)) + min;
+    if (sedile <= 250) {
+      seat = `Carrozza: 5 Posto: ${sedile}`;
+    }
+    else {
+      seat = `Carrozza: 6 Posto: ${sedile}`;
+    }
   }
   else if (chilometri < 80) {
     min = 300;
     max = 400;
-    seat = Math.floor(Math.random() * (max - min + 1)) + min;
+    sedile = Math.floor(Math.random() * (max - min + 1)) + min;
+    if (sedile <= 350) {
+      seat = `Carrozza: 7 Posto: ${sedile}`;
+    }
+    else {
+      seat = `Carrozza: 8 Posto: ${sedile}`;
+    }
   }
   else {
     min = 400;
     max = 500;
-    seat = Math.floor(Math.random() * (max - min + 1)) + min;
+    sedile = Math.floor(Math.random() * (max - min + 1)) + min;
+    if (sedile <= 450) {
+      seat = `Carrozza: 9 Posto: ${sedile}`;
+    }
+    else {
+      seat = `Carrozza: 10 Posto: ${sedile}`;
+    }
   }
-  console.log(seat)
+  lettera = Math.floor(Math.random() * 4) + 1;
+  if (lettera === 1) {
+    seat = `${seat} A`
+  }
+  else if (lettera === 2) {
+    seat = `${seat} B`
+  }
+  else if (lettera === 3) {
+    seat = `${seat} C`
+  }
+  else {
+    seat = `${seat} D`
+  }
+
+  console.log(seat);
+  return seat;
 }
 
 const create = document.getElementById('create');
@@ -72,9 +117,31 @@ create.addEventListener("click", function (event) {
   const showTimeOut = document.getElementById('show-timeOut');
   const showKm = document.getElementById('show-km');
   const showSconto = document.getElementById('show-sconto');
-  const showPrice = document.getElementById('show-price');
   const showTotalPrice = document.getElementById('show-totalPrice');
 
+  showName.innerHTML = name;
+  showSeat.innerHTML = seat;
+  showDateIn.innerHTML = dateIn;
+  showTimeIn.innerHTML = timeIn;
+  if (dateOut !== '') {
+    showDateOut.innerHTML = dateOut;
+    showTimeOut.innerHTML = timeOut;
+  }
+  else {
+    showDateOut.innerHTML = '/';
+    showTimeOut.innerHTML = '/';
+  }
+  showKm.innerHTML = `${km} km`;
+  if (eta === 'minor') {
+    showSconto.innerHTML = '20%';
+  }
+  else if (eta === 'over') {
+    showSconto.innerHTML = '40%';
+  }
+  else {
+    showSconto.innerHTML = '/';
+  }
+  showTotalPrice.innerHTML = `€ ${prezzoTotale.toFixed(2)}`;
 })
 
 
